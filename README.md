@@ -3,9 +3,9 @@
 Various scripts to analyze **Copy Number Variations** in whole-exome, Nanostring CNV panel, Illumina CytoSNP 850k array for tumor-normal cancer data.
 
 1. Current methods used to analyze exome data:
-..* [CNVkit](https://github.com/etal/cnvkit)
-..* [Canvas](https://github.com/Illumina/canvas)
-..* [VarScan 2](https://github.com/dkoboldt/varscan)
+..1. [CNVkit](https://github.com/etal/cnvkit)
+..2. [Canvas](https://github.com/Illumina/canvas)
+..3. [VarScan 2](https://github.com/dkoboldt/varscan)
 
 2. Nanostring's CNV panel is analyzed according to their recommended protocol.
 
