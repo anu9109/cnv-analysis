@@ -1,4 +1,4 @@
-## cnvanalysis
+## cnv-analysis
 
 Various scripts to analyze **Copy Number Variations** in whole-exome, Nanostring CNV panel, Illumina CytoSNP 850k array for tumor-normal cancer data.
 

@@ -9,6 +9,6 @@ source $MODULESHOME/init/bash
 
 module load R
 
-Rscript /home/anu/cnvanalysis/cytoSNP850k_segmentation_PM.R $2 $1
+Rscript /home/anu/cnv-analysis/cytoSNP850k_segmentation_PM.R $2 $1
 
 exit 0
