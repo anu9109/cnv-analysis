@@ -28,19 +28,19 @@ readRaw <- function(file) {
 
 ## NORMALIZATION
 # +ve control 
-posCtrls <- sapply(list.files(path = "/data/storage/patients/cnv", pattern = "nanostringCNV.*\\.RCC$", recursive = TRUE, full.names = TRUE), function(i) subset(readRaw(i)$ctrls, CodeClass=="Positive")$Count)
+posCtrls <- sapply(list.files(path = prefix, pattern = "nanostringCNV.*\\.RCC$", recursive = TRUE, full.names = TRUE), function(i) subset(readRaw(i)$ctrls, CodeClass=="Positive")$Count)
 geomSample <- apply(posCtrls, 2, mean)
 geomAll <- exp(mean(log(geomSample))) 
 sf <- geomSample / geomAll
 
 # -ve control
-negCtrls <- sapply(list.files(path = "/data/storage/patients/cnv", pattern = "nanostringCNV.*\\.RCC$", recursive = TRUE, full.names = TRUE), function(i) subset(readRaw(i)$ctrls, CodeClass=="Negative")$Count)
+negCtrls <- sapply(list.files(path = prefix, pattern = "nanostringCNV.*\\.RCC$", recursive = TRUE, full.names = TRUE), function(i) subset(readRaw(i)$ctrls, CodeClass=="Negative")$Count)
 meanSample <- apply(negCtrls, 2, mean)
 sdSample <- apply(negCtrls, 2, sd)
 bg <- meanSample + 3 * sdSample
 
 # calculating mean INV count across all samples (change size flag for random subset)
-randINVmeancount <- mean(sapply(list.files(path = "/data/storage/patients/cnv", pattern = "nanostringCNV.*\\.RCC$", recursive = TRUE, full.names = TRUE), function(i) mean(readRaw(i)$inv$Count)))
+randINVmeancount <- mean(sapply(list.files(path = prefix, pattern = "nanostringCNV.*\\.RCC$", recursive = TRUE, full.names = TRUE), function(i) mean(readRaw(i)$inv$Count)))
 
 # normalizing endogenous counts based on +ve control, -ve control and invariant counts
 normNS <- function(NSdat, NSfile) {
